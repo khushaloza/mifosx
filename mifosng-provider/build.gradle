@@ -228,8 +228,8 @@ configurations {
 task integrationTest(type:Test){
     description = "Run integration tests (located in src/integrationTest/java). Starts tomcat in daemon mode before executing the tests."
     doFirst {
-        tomcatRun.daemon = true
-        tomcatRun.execute()
+        tomcatRunWar.daemon = true
+        tomcatRunWar.execute()
     }
 
     doLast {
