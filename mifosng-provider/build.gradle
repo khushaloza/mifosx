@@ -291,7 +291,7 @@ flyway {
     user = 'root'
     password = ''
     locations = [
-            'filesystem:/home/jenkins/mifosng-db/migrations/',
+            'filesystem:mifosng-db/migrations',
     ]
 
     //$dbName    $dbUser   $dbPassword
