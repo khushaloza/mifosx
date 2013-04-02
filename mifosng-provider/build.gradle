@@ -272,7 +272,7 @@ task dropDatabase<<{
 task setBlankPassword<<{
     sql = Sql.newInstance( 'jdbc:mysql://localhost:3306/', 'root', '', 'com.mysql.jdbc.Driver' )
     sql.execute('USE `mifosplatform-tenants`')
-    sql.execute('UPDATE tenants SET schema_server = \'localhost\', schema_server_port = \'3306\', schema_username = \'mifos\', schema_password = \'\' WHERE id=1')
+    sql.execute('UPDATE tenants SET schema_server = \'localhost\', schema_server_port = \'3306\', schema_username = \'root\', schema_password = \'\' WHERE id=1')
 }
 
 
