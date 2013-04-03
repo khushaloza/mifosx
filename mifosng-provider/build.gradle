@@ -257,7 +257,7 @@ configurations.driver.each {File file ->
 
 task createDatabase<<{
     description= "Creates the Database mifosplatform-tenants and mifostenant-default"
-    sql = Sql.newInstance( 'jdbc:mysql://localhost:3306/', 'root', '', 'com.mysql.jdbc.Driver' )
+    sql = Sql.newInstance( 'jdbc:mysql://localhost:3306/', 'root', 'mysql', 'com.mysql.jdbc.Driver' )
     sql.execute( 'create database `mifosplatform-tenants`' )
     sql.execute( 'create database `mifostenant-default`' )
 
@@ -270,7 +270,7 @@ task dropDatabase<<{
 
 }
 task setBlankPassword<<{
-    sql = Sql.newInstance( 'jdbc:mysql://localhost:3306/', 'root', '', 'com.mysql.jdbc.Driver' )
+    sql = Sql.newInstance( 'jdbc:mysql://localhost:3306/', 'root', 'mysql', 'com.mysql.jdbc.Driver' )
     sql.execute('USE `mifosplatform-tenants`')
     sql.execute('UPDATE tenants SET schema_server = \'localhost\', schema_server_port = \'3306\', schema_username = \'root\', schema_password = \'\' WHERE id=1')
 }
@@ -292,7 +292,7 @@ buildscript {
 flyway {
     url = "jdbc:mysql://localhost:3306/mifostenant-default"
     user = 'root'
-    password = ''
+    password = 'mysql'
     locations = [
             'filesystem:mifosng-db/migrations',
     ]
